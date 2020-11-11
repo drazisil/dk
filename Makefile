@@ -15,7 +15,8 @@ assembly_object_files := $(patsubst src/arch/$(arch)/%.asm, \
 all: $(kernel)
 
 clean:
-	@rm -r build
+	@rm -rf build
+	@rm -rf target
 
 run: $(iso)
 	@qemu-system-x86_64 -cdrom $(iso)
@@ -34,7 +35,7 @@ $(kernel): kernel $(rust_os) $(assembly_object_files) $(linker_script)
 		$(assembly_object_files) $(rust_os)
 
 kernel:
-	@RUST_TARGET_PATH=$(shell pwd) cargo build --target $(target)
+	@RUST_TARGET_PATH=$(shell pwd) cargo build
 
 # compile assembly files
 build/arch/$(arch)/%.o: src/arch/$(arch)/%.asm
