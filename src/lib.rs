@@ -16,12 +16,14 @@ pub mod interrupts;
 #[macro_use]
 pub mod vga_buffer;
 pub mod memory;
-mod serial;
+pub mod gdt;
+pub mod serial;
 
 use core::panic::PanicInfo;
 pub use crate::memory::{AreaFrameAllocator,FrameAllocator};
 
 pub fn init() {
+    gdt::init();
     interrupts::init_idt();
 }
 
