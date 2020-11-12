@@ -18,8 +18,14 @@ clean:
 	@rm -rf build
 	@rm -rf target
 
+bootimage:
+	@cargo bootimage
+
+bootimage.run: bootimage
+	@qemu-system-x86_64 -drive format=raw,file=target/x86_64-dk/debug/bootimage-dk.bin
+
 run: $(iso)
-	@qemu-system-x86_64 -cdrom $(iso)
+	@qemu-system-x86_64 -cdrom $(iso) -device isa-debug-exit,iobase=0xf4,iosize=0x04 -serial stdio
 
 iso: $(iso)
 
