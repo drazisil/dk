@@ -1,2 +1,0 @@
-# dk
-Drazi's Kernel
