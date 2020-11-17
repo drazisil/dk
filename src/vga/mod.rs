@@ -3,7 +3,6 @@ use core::ptr::Unique;
 use spin::Mutex;
 use volatile::Volatile;
 
-
 pub static WRITER: Mutex<Writer> = Mutex::new(Writer {
     column_position: 0,
     color_code: ColorCode::new(Color::LightGreen, Color::Black),
@@ -83,6 +82,7 @@ impl Writer {
         }
     }
 
+    #[allow(dead_code)]
     pub fn write_str(&mut self, s: &str) {
         for byte in s.bytes() {
         self.write_byte(byte)
