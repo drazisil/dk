@@ -25,6 +25,7 @@ iso: link
 	grub-mkrescue -o out/dk.iso out/iso
 
 run: iso
-	qemu-system-x86_64 -cdrom out/dk.iso -D boot.log
+	qemu-system-x86_64 -drive format=raw,file=/home/drazisil/github/dk/target/x86_64-unknown-none/debug/bootimage-dk.bin
+	# qemu-system-x86_64 -cdrom out/dk.iso
 
 .PHONY: all clean asm rust link iso run

@@ -146,8 +146,6 @@ enable_paging:
 
     ret
 
-
-
 section .rodata
 gdt64:
     dq 0 ; zero entry
@@ -166,5 +164,5 @@ p3_table:
 p2_table:
     resb 4096
 stack_bottom:
-    resb 4096 * 4
+    resb 64
 stack_top:

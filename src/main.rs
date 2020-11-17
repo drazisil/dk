@@ -1,19 +1,25 @@
 #![no_std]
 #![no_main]
 
-#[cfg(not(test))]
-use core::panic::PanicInfo;
+static HELLO: &[u8] = b"Hello World!";
 
-mod vga;
-
-#[no_mangle] // don't mangle the name of this function
+#[no_mangle]
 pub extern "C" fn _start() -> ! {
-    vga::print_something();
+    let vga_buffer = 0xb8000 as *mut u8;
+
+    for (i, &byte) in HELLO.iter().enumerate() {
+        unsafe {
+            *vga_buffer.offset(i as isize * 2) = byte;
+            *vga_buffer.offset(i as isize * 2 + 1) = 0xb;
+        }
+    }
+    
     loop {}
 }
 
+use core::panic::PanicInfo;
 
-#[cfg(not(test))]
+/// This function is called on panic.
 #[panic_handler]
 fn panic(_info: &PanicInfo) -> ! {
     loop {}
