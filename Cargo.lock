@@ -2,9 +2,9 @@
 # It is not intended for manual editing.
 [[package]]
 name = "bootloader"
-version = "0.9.14"
+version = "0.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "77b333a502e4d2381a65a0b238957bfebe8d24d726a618e4152d6b068d46acde"
+checksum = "587d4b87e0d9fff4af6a5be6c4033bcfb9fbdb03e920a80e088bc9389e2d4d27"
 
 [[package]]
 name = "dk"
