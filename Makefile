@@ -11,7 +11,7 @@ asm: clean
 	nasm -f elf64 src/asm/long_mode_init.asm -o out/long_mode_init
 
 rust: asm
-    rustup component add rust-src
+	rustup component add rust-src
 	cargo build
 	cargo bootimage
 
