@@ -758,9 +758,9 @@ dependencies = [
 
 [[package]]
 name = "volatile"
-version = "0.5.2"
+version = "0.5.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b214e6480cbaa16049d2f256268b51732a8d1e5507ac56392990604c7c71d936"
+checksum = "ef15f694bca7c21d52e98cff4f933d4e82b4cc1ed05ec8da0ee750002641c88e"
 
 [[package]]
 name = "waker-fn"
