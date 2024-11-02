@@ -9,4 +9,4 @@ edition = "2018"
 [dependencies]
 volatile = "0.6.1"
 spin = "0.9.8"
-bootloader = "0.11.7"
+bootloader = "0.11.8"
